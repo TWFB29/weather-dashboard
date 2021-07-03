@@ -24,6 +24,10 @@ function plsfut(){
             
        }).then(data => {
            console.log(data.current.uvi)
+           var uvi = document.createElement("li");
+           var txtUvi = document.createTextNode("UV Index: " + data.current.uvi) 
+           uvi.appendChild(txtUvi);
+           document.getElementById("uvIndex").appendChild(uvi);          
            
        })
        //var stuff = data.current.condition.icon
