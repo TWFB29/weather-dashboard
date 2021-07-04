@@ -5,3 +5,14 @@
     padding: 15px;
     text-align: center;
 }
+
+.cd img {
+    display:inline-flexbox;
+    
+}
+
+.cityInputCurrentConditions {
+    padding: 15px;
+    border: 4px solid black; 
+    
+}

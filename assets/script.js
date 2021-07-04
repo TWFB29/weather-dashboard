@@ -57,9 +57,6 @@ function plsfut(){
            currentHeader.appendChild(txtCurrentHeader);
            document.getElementById("CurrentConditions").appendChild(currentHeader)   
        })
-       //var stuff = data.current.condition.icon
-       //var spl = stuff.split(".com/")
-       //console.log(spl[1])
        var img = document.createElement("img");
      img.src = "https://openweathermap.org/img/w/" + data.list[0].weather[0].icon + ".png";
      var src = document.getElementById("CurrentConditions");
