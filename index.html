@@ -24,28 +24,60 @@
             </div>
         </div>
         <!-- city input, search history/row 1/left sidebar -->
-        <div class="row">
-            <div class="col-12 col-md-3">
-                <h4>City Input:</h4>
-                <form>
-                    <div class="form-group input-group">
-                        <input type="text" class="form-control" id="search-city" placeholder="Enter city here">
-                        <div class="input-group-append">
-                            <button class="btn" type="submit">Get Weather</button>
-                        </div>
+        <div class="row mb-3">
+
+            <div class="col-12 ">
+
+                <div class="input-group mb-3">
+
+                    <div class="input-group-prepend">
+
+                        <span class="input-group-text" id="inputGroup-sizing-default">Search:</span>
+
                     </div>
-                </form>
+
+                    <input type="text" id="userInput" class="form-control" aria-label="Default"
+
+                        aria-describedby="inputGroup-sizing-default">
+
+                    <div class="input-group-append">
+
+                        <button id="searchButton" class="btn btn-outline-secondary" type="button">Submit</button>
+
+                    </div>
+
+                </div>
+
+ 
 
                 <!-- Seach History -->
-                <div class="card">
 
-                    <ul class="list-group list-group-flush" id="searchHistoryCards">
-                        <!-- LIST ITEMS HERE -->
-                    </ul>
+                <div class="card bg-info col-sm-12">
 
-                    <button id="clearHistory" class="btn btn-sm btn-secondary">Clear History</button>
+                    <div>
+
+                        <h5 class="col-12 text-center bg-secondary mb-1 text-white rounded">Saved Searches:</h5>
+
+                        <ul id= "savedSearches" class="list-group list-group-flush text-white">
+
+ 
+
+                        </ul>
+
+ 
+
+                    </div>
+
+ 
+
+                    <button id="clearHistory" class="btn btn-sm btn-dark">Clear History</button>
+
                 </div>
+
             </div>
+
+        </div>
+
             <!-- end row 1/ left sidebar -->
 
             <!-- API 2 sections, current weather and 5 day forecast -->
@@ -53,8 +85,9 @@
             <div id="currentCard" class="col-12 col-md-9">
                 <div class="row">
                     <div class="col-12">
-                        <div class="cityInputCurrentConditions">
-                            <div id="CurrentConditions" class="cd"></div>
+                        <div id="cityInputCurrentConditions">
+                            <img id="icon" src="" alt="weather icon"/>
+                            <h3 id="CurrentConditions"></h3>
                             <div id="Temperature"></div>
                             <div id="windSpeed"></div>
                             <div id="Humidity"></div>
@@ -75,10 +108,67 @@
 
                         <div class="card">
                             <div class="card-body">
-                            <h5 class="card-title">Date:</h5>
-                            <p class="card-text">Temp: </p>
-                            <p class="card-text">Wind Speed: </p>
-                            <p class="card-text">Humidity: </p>
+                            <h5 id="date1">Date:</h5>
+                            <img id="icon1" src="" alt="weather icon"/>
+                            <p id="temp1">Temp: </p>
+                            <p id="wind1">Wind Speed: </p>
+                            <p id="humidity1">Humidity: </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-2">
+
+                        <div class="card">
+                            <div class="card-body">
+                            <h5 id="date2">Date:</h5>
+                            <img id="icon2" src="" alt="weather icon"/>
+                            <p id="temp2">Temp: </p>
+                            <p id="wind2">Wind Speed: </p>
+                            <p id="humidity2">Humidity: </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-2">
+
+                        <div class="card">
+                            <div class="card-body">
+                            <h5 id="date3">Date:</h5>
+                            <img id="icon3" src="" alt="weather icon"/>
+                            <p id="temp3">Temp: </p>
+                            <p id="wind3">Wind Speed: </p>
+                            <p id="humidity3">Humidity: </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-2">
+
+                        <div class="card">
+                            <div class="card-body">
+                            <h5 id="date4">Date:</h5>
+                            <img id="icon4" src="" alt="weather icon"/>
+                            <p id="temp4">Temp: </p>
+                            <p id="wind4">Wind Speed: </p>
+                            <p id="humidity4">Humidity: </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-2">
+
+                        <div class="card">
+                            <div class="card-body">
+                            <h5 id="date5">Date:</h5>
+                            <img id="icon5" src="" alt="weather icon"/>
+                            <p id="temp5">Temp: </p>
+                            <p id="wind5">Wind Speed: </p>
+                            <p id="humidity5">Humidity: </p>
                             </div>
                         </div>
 
