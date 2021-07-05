@@ -32,7 +32,7 @@ searchButton.on("click", function(event) {
 
     function WeatherFill(){
         var apiKey = "c81ae0be75f519c71d1f855b95d48ec3"
-        var weatherApi = "http://api.openweathermap.org/data/2.5/forecast?q=" + inputValue + "&units=imperial&appid=" + apiKey
+        var weatherApi = "https://api.openweathermap.org/data/2.5/forecast?q=" + inputValue + "&units=imperial&appid=" + apiKey
         console.log(weatherApi)
         fetch(weatherApi).then(response => {
             return response.json()
