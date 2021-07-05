@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="assets/styles.css" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Weather Dashboard</title>
+
+</head>
+
+<body>
+    <!-- title/container -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="app-title">Weather Dashboard</h1>
+            </div>
+        </div>
+        <!-- city input, search history/row 1/left sidebar -->
+        <div class="row mb-3">
+
+            <div class="col-12 ">
+
+                <div class="input-group mb-3">
+
+                    <div class="input-group-prepend">
+
+                        <span class="input-group-text" id="inputGroup-sizing-default">Search:</span>
+
+                    </div>
+
+                    <input type="text" id="userInput" class="form-control" aria-label="Default"
+
+                        aria-describedby="inputGroup-sizing-default">
+
+                    <div class="input-group-append">
+
+                        <button id="searchButton" class="btn btn-outline-secondary" type="button">Submit</button>
+
+                    </div>
+
+                </div>
+
+ 
+
+                <!-- Seach History -->
+
+                <div class="card bg-info col-sm-12">
+
+                    <div>
+
+                        <h5 class="col-12 text-center bg-secondary mb-1 text-white rounded">Saved Searches:</h5>
+
+                        <ul id= "savedSearches" class="list-group list-group-flush text-white">
+
+ 
+
+                        </ul>
+
+ 
+
+                    </div>
+
+ 
+
+                    <button id="clearHistory" class="btn btn-sm btn-dark">Clear History</button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+            <!-- end row 1/ left sidebar -->
+
+            <!-- API 2 sections, current weather and 5 day forecast -->
+            <!-- SECTION 1 CURRENT WEATHER -->
+            <div id="currentCard" class="col-12 col-md-9">
+                <div class="row">
+                    <div class="col-12">
+                        <div id="cityInputCurrentConditions">
+                            <img id="icon" src="" alt="weather icon"/>
+                            <h3 id="CurrentConditions"></h3>
+                            <div id="Temperature"></div>
+                            <div id="windSpeed"></div>
+                            <div id="Humidity"></div>
+                            <div id="uvIndex"></div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- END CURRENT WEATHER -->
+
+                <!-- SECTION 2 5DAY FORECAST -->
+                <div class="row col-12">
+                        <h2>Five Day Forecast:</h2>
+                </div>
+
+                <div id="5DayForecast" class="row">
+                    <div class="col-2">
+
+                        <div class="card">
+                            <div class="card-body">
+                            <h5 id="date1">Date:</h5>
+                            <img id="icon1" src="" alt="weather icon"/>
+                            <p id="temp1">Temp: </p>
+                            <p id="wind1">Wind Speed: </p>
+                            <p id="humidity1">Humidity: </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-2">
+
+                        <div class="card">
+                            <div class="card-body">
+                            <h5 id="date2">Date:</h5>
+                            <img id="icon2" src="" alt="weather icon"/>
+                            <p id="temp2">Temp: </p>
+                            <p id="wind2">Wind Speed: </p>
+                            <p id="humidity2">Humidity: </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-2">
+
+                        <div class="card">
+                            <div class="card-body">
+                            <h5 id="date3">Date:</h5>
+                            <img id="icon3" src="" alt="weather icon"/>
+                            <p id="temp3">Temp: </p>
+                            <p id="wind3">Wind Speed: </p>
+                            <p id="humidity3">Humidity: </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-2">
+
+                        <div class="card">
+                            <div class="card-body">
+                            <h5 id="date4">Date:</h5>
+                            <img id="icon4" src="" alt="weather icon"/>
+                            <p id="temp4">Temp: </p>
+                            <p id="wind4">Wind Speed: </p>
+                            <p id="humidity4">Humidity: </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-2">
+
+                        <div class="card">
+                            <div class="card-body">
+                            <h5 id="date5">Date:</h5>
+                            <img id="icon5" src="" alt="weather icon"/>
+                            <p id="temp5">Temp: </p>
+                            <p id="wind5">Wind Speed: </p>
+                            <p id="humidity5">Humidity: </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+                integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+                crossorigin="anonymous"></script>
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+                integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+                crossorigin="anonymous"></script>
+
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+                integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+                crossorigin="anonymous"></script>
+
+            <script src="assets/script.js"></script>
+</body>
+
+</html>
