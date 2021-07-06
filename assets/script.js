@@ -1,8 +1,8 @@
-
+var d = moment().format('l');
 var userInput = $("#userInput");
 var setImg = document.getElementById("icon")
-var icon1 = document.getElementById("icon1")
 var searchButton = $("#searchButton");
+
 
 var clearHistoryButton = $("#clearHistoryButton");
 
@@ -43,22 +43,11 @@ searchButton.on("click", function(event) {
             console.log(lat)
             console.log(lon)
             var cityName = data.city.name
-            console.log(data.list[0].dt_txt)
-
-            
-            
-                var currentDateStr = (data.list[0].dt_txt);
-                var currentDate = currentDateStr.split(" ");
-                var currentDateStr = currentDate[0]
-                var currentDate = currentDateStr.split("-");
-                currentDate = currentDate[2] - 1 + "/" + currentDate[1] + "/" + currentDate[0] 
-                console.log(currentDate)
 
 
             var uvApi = "https://api.openweathermap.org/data/2.5/onecall?&lat=" + lat + "&lon=" + lon + "&units=imperial&appid=" + apiKey;
             fetch(uvApi).then(response => {
                 return response.json()
-                $('#cityInputCurrentConditions').empty();
         }).then(data => {
             console.log(data) 
             //current conditions 
@@ -66,29 +55,60 @@ searchButton.on("click", function(event) {
             windSpeed.innerHTML = "Wind: " + data.current.wind_speed + " MPH"
             Humidity.innerHTML = "Humidity: " + data.current.humidity + " %"
             Temperature.innerHTML = "Temp: " + data.current.temp + " ℉"
-            CurrentConditions.innerHTML = cityName + "(" + currentDate + ")"
+            CurrentConditions.innerHTML = cityName + "(" + d + ")"
             setImg.setAttribute("src", "https://openweathermap.org/img/w/" +  data.current.weather[0].icon + ".png")  
             console.log(data)
-            //var weatherApi = "http://api.openweathermap.org/data/2.5/forecast?q=" + inputValue + "&units=imperial&appid=" + apiKey
-            var ii = 1 
             
+        })   
+        fetch(weatherApi).then(response => {
+            return response.json()
+    }).then(data => {
+            setConditions()}) 
+        function setConditions() {
+            for(i = 0; i < 6; i++) {
+                
+                //console.log(card)  
+              
             
-            date1.innerHTML = dd[2] + "/" + dd[1] + "/" + dd[0]
-            icon1.setAttribute("src", "https://openweathermap.org/img/w/" +  data.list[1].weather[1].icon + ".png")
-            temp1.innerHTML = "Temp: " + data.list[1].temp + " ℉"
-            wind1.innerHTML = "Wind: " + data.list[1].wind.speed + " MPH"
-            humidity1.innerHTML = "Humidity: " + data.list[1].main.humidity + " %"
+            console.log(data)
+            const card = document.getElementsByClassName('card')[i +1];
+            const dt  = document.getElementsByClassName('date')[i];
+            const Icn = document.getElementsByClassName('icon')[i];
+            const Tmp = document.getElementsByClassName('Temperature')[i];
+            const Wnd = document.getElementsByClassName('windSpeed')[i];
+            const Hum = document.getElementsByClassName('Humidity')[i];
+            var ii  = 1
+             d = d.split("/")
+             var da = Number(d[1]) + ii
+             d = d[0] + "/" + da + "/" + d[2]
+
+            Icn.setAttribute("src", "https://openweathermap.org/img/w/" +  data.list[i].weather[0].icon + ".png")
+            dt.innerHTML =  d
+            Tmp.innerHTML = "Temp: " + data.list[i].main.temp + " ℉"; 
+            Wnd.innerHTML = "Wind: " + data.list[i].wind.speed + " MPH"
+            Hum.innerHTML = "Humidity: " + data.list[i].main.humidity + " %"
+
+            console.log(Tmp)
+            card.appendChild(dt)
+            card.appendChild(Wnd)
+            card.appendChild(Tmp)
+            card.appendChild(Hum)
             
-        })
+            }
         
-        console.log(data)
+        
+            
+        }
+        
+    })
+   
+       
        
             
         
        
         
-        
-        });
+     
     }
 
 });
